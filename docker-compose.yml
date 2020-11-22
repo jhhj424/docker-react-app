@@ -1,0 +1,14 @@
+version: "3" # docker compose version
+services:
+  react:
+    build: 
+      context: . # 도커 파일의 위치 ( . 은 현재 폴더를 의미 )
+      dockerfile: Dockerfile.dev # 빌드시 사용할 도커파일
+    ports: 
+     - "3000:3000" # 포트 mapping
+    volumes: 
+     - /usr/src/app/node_modules # /usr/src/app/node_modules는 volumes(참조)하지 않겠다.
+     - ./:/usr/src/app # ./:/usr/src/app은 volumes(참조) 하겠다.
+    environment: 
+     - CHOKIDAR_USEPOLLING=true # 중요! 리액트 핫 리로딩 적용. 윈도우 일때 필수 적용
+    stdin_open: true # 리액트에 한정된 명령어. 리액트 앱을 끌 때 필요.
