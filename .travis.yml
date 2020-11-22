@@ -18,9 +18,9 @@ deploy: # Test가 완료되면 배포 진행
   app: "docker-react-app" # Elastic Beanstalk을 만들때 지정했던 애플리케이션 이름
   env: "DockerReactApp-env" # Elastic Beanstalk env (만들때 따로 지정 안했으면 app이름 + env 로 생성됨)
   bucket_name: "elasticbeanstalk-ap-northeast-2-524186973259" # S3 버켓 이름
-  bucket_path: "elasticbeanstalk-ap-northeast-2-524186973259" # S3 버켓 패스 ( 이름과 동일 )
+  bucket_path: "docker-react-app" # S3 버켓 패스 (따로 지정하지 않으면 app 이름)
   on:
     branch: master # Travis CI가 인식할 브랜치 명시 - master 브랜치로의 Push만 Catch 함
-    
-  access_key_id: $AWS_ACCESS_KEY
-  secret_access_key: $AWS_SECRET_ACCESS_KEY
+
+  access_key_id: $AWS_ACCESS_KEY # AWS API Key
+  secret_access_key: $AWS_SECRET_ACCESS_KEY # AWS API Secret Key
