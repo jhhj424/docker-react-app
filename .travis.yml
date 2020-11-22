@@ -21,5 +21,6 @@ deploy: # Test가 완료되면 배포 진행
   bucket_path: "elasticbeanstalk-ap-northeast-2-524186973259" # S3 버켓 패스 ( 이름과 동일 )
   on:
     branch: master # Travis CI가 인식할 브랜치 명시 - master 브랜치로의 Push만 Catch 함
-access_key_id: $AWS_ACCESS_KEY
-secret_access_key: $AWS_SECRET_ACCESS_KEY
+    
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_ACCESS_KEY
